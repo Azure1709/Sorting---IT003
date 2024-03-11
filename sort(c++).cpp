@@ -1,28 +1,28 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+
 using namespace std;
-using namespace std::chrono;
-const int limit = 1e9 + 10;
+using namespace chrono;
 
-int main(){
-    ios_base::sync_with_stdio();
-    cin.tie();
+high_resolution_clock::time_point tBegin, tEnd;
+duration<double> exec_time;
 
-    freopen("test_case.txt", "r ", stdin);
-    float *A = new float[limit];
-
-    for (int j = 1; j <= 5; j++){
-        for (int i = 0; i < limit; i++)         cin >> A[i];
+const int N = 1e6;
+float A[N];
 
 
-    auto begin = high_resolution_clock :: now();
-    sort(A, A + limit);
 
-    auto end = high_resolution_clock::now();
+int main() {
+	freopen("test_case.txt", "r", stdin);
 
-    auto duration = duration_cast<milliseconds> (end - begin);
+    for (int j = 1; j <= 10; j++) {
+        for (int i = 0; i < N; i++) cin >> A[i];
 
-    cout << "sort (c++) time_data ["<< j << "]:\t" <<  duration.count() << "\tms\n";
+        tBegin = high_resolution_clock::now();
+        sort(A, A + N);
+        tEnd = high_resolution_clock::now();
+
+        exec_time = duration_cast<duration<double>>(tEnd - tBegin);
+
+        cout << "Sort (c++) time_data ["<< j << "]:\t" << (int)1000 * exec_time.count() << "\t ms\n" << endl;
     }
-   return 0;
-
 }

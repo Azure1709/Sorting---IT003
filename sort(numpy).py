@@ -11,5 +11,5 @@ with open("test_case.txt", "r") as input:
         list = np.sort(list)
         end = time.time()
         
-        print(f"sort (numpy) time_data {i}:", round((end - start)*100), "\tms\n")
+        print(f"Sort (numpy) time_data {i}:", round((end - start)*1000), "\tms\n")
         i+=1
